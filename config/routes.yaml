@@ -1,0 +1,18 @@
+#index:
+#    path: /
+#    controller: App\Controller\DefaultController::index
+blog_list:
+  path:     /blog
+  controller: App\Controller\BlogController::list
+
+blog_show:
+  path:     /blog/detail/{id}
+  controller: App\Controller\BlogController::show
+
+blog_new:
+  path:    /blog/new
+  controller: App\Controller\BlogController::new
+
+author_new:
+  path:    /author/new
+  controller: App\Controller\BlogController::addAuthor

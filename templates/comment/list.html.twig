@@ -1,0 +1,15 @@
+{% block body %}
+    <div class="container comments">
+
+        {% for comment in comments %}
+            <div class="row" style="border: solid 2px black; margin: 5px; padding: 5px">
+                <div>
+                    {{ comment.author.name }} ({{ comment.author.email }})
+                    {{ comment.date |format_datetime(locale='en') }}
+                </div>
+                {{ comment.content |raw }}
+            </div>
+        {% endfor %}
+
+    </div>
+{% endblock %}

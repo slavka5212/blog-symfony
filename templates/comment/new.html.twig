@@ -1,0 +1,15 @@
+{% block body %}
+    <div class="container">
+
+        <div class="row" style="border: solid 2px black; margin: 5px; padding: 5px">
+            <h2>New comment</h2>
+
+            {{ form_start(form) }}
+
+            {{ form_widget(form) }}
+
+            {{ form_end(form) }}
+
+        </div>
+    </div>
+{% endblock %}

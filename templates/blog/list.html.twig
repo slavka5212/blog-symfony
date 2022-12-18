@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog{% endblock %}
+
+{% block body %}
+    <style>
+        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
+        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
+    </style>
+
+    {% if message %}
+        <div class="message">
+            {{ message }}
+        </div>
+    {% endif %}
+
+
+    <a href="{{ path('blog_new') }}">*New post*</a>
+    <a href="{{ path('author_new') }}">*New author*</a>
+
+    <h1>List of Posts {% dump(posts) %}</h1>
+
+    <div class="blogs-list">
+        {% for post in posts %}
+            <div class="row" style="padding: 5px;">
+                <h2>
+                    <a href="{{ path('blog_show', { id: post[0].id }) }}">
+                        {{ post[0].title }}
+                    </a>
+                </h2>
+                <div>
+                    {{ post[0].author.name }} ({{ post[0].author.email }})
+                    {{ post[0].date |format_datetime(locale='en') }}
+                   Comments: {{ post.comments_count }}
+                </div>
+                {{ post[0].description |raw }}
+            </div>
+        {% endfor %}
+    </div>
+
+
+{% endblock %}
